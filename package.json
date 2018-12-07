@@ -1,0 +1,27 @@
+{
+  "name": "arachne",
+  "version": "0.0.0",
+  "description": "web crawler",
+  "main": "index.mjs",
+  "scripts": {
+    "start": "node --experimental-modules index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozthekoder/arachne.git"
+  },
+  "author": "Osman Ozdemir <oozdemir2704@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ozthekoder/arachne/issues"
+  },
+  "homepage": "https://github.com/ozthekoder/arachne#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "get-urls": "^8.0.0",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5",
+    "url-regex": "^4.1.1"
+  }
+}
