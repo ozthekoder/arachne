@@ -1,17 +1,16 @@
-import cheerio from 'cheerio';
-import request from 'request-promise-native';
-import getURLs from 'get-urls';
+import { fetch } from './fetcher';
 
-const parsed = {};
-request('https://www.planetdp.org/title/v-for-vendetta-dp51070')
-  .then((body) => {
-    const $ = cheerio.load(body);
-    const anchors = $('a');
-    const urls = anchors.each(function(i, el) {
-      console.log(el.attribs.href);
+fetch('https://www.planetdp.org/title/v-for-vendetta-dp51070')
+  .then(($) => {
+    let urls = [];
+
+    $('a').each(function(i, el) {
+      urls.push(el.attribs.href);
     });
-    //const urls = getURLs(body);
-    //console.log(urls);
+
+    urls = urls.filter((a) => !/^#/.test(a)).filter((a) => /^\//.test(a));
+
+    console.log(JSON.stringify(urls, null, 2));
   })
   .catch((e) => {
     console.error(e);
